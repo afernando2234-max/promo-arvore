@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Árvore de Natal — Promoção Especial</title>
+  <meta name="description" content="Árvores de Natal 90cm — 1 por R$37,90 ou 2 por R$54,90. Frete grátis para a região. Compre com segurança via GhostsPay." />
+  <style>
+    :root{--bg:#071023;--card:#0b1220;--accent:#e11d48;--accent2:#ffb703;--muted:#bfcbdc}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:linear-gradient(180deg,#071023 0%, #08112b 100%); color:#f7fafc}
+    .wrap{max-width:1100px;margin:24px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:radial-gradient(circle at 30% 20%, #ffd6a5, #ffb703);display:flex;align-items:center;justify-content:center;font-weight:800;color:#3b2f1b}
+    h1{font-size:clamp(24px,4vw,40px);line-height:1.05}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:22px;align-items:center;margin-top:18px}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
+    .muted{color:var(--muted)}
+    .price{font-size:28px;font-weight:700;color:var(--accent2)}
+    .old{color:#9aa6bf;text-decoration:line-through}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .buy{background:linear-gradient(90deg,var(--accent),#ff6b6b);color:#fff;border:none;cursor:pointer}
+    .ghost-btn{background:#0f1724;color:#fff;border:1px solid rgba(255,255,255,0.04)}
+    ul{margin-top:10px}
+    .features{display:flex;gap:10px;margin-top:12px}
+    .feature{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px}
+    .quantity{display:flex;gap:8px;align-items:center}
+    input.qty{width:64px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    footer{margin-top:22px;color:var(--muted);font-size:0.95rem;text-align:center}
+    .tiktok-sim{display:flex;gap:10px;align-items:center;background:linear-gradient(90deg,#111827, #0b1220);padding:8px;border-radius:10px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">🎄</div>
+        <div>
+          <div style="font-weight:800">Natal Feliz — Árvores 90cm</div>
+          <div class="muted">Promoção limitada • Frete grátis</div>
+        </div>
+      </div>
+      <div class="tiktok-sim">
+        <div style="font-weight:700">TikTok Shop</div>
+        <div class="muted" style="font-size:0.9rem">Visual inspirado no TikTok Shop — alto foco em confiança</div>
+      </div>
+    </header>
+
+    <main class="hero">
+      <section>
+        <div class="card">
+          <h1>Árvore de Natal 90cm — Compacta e Romântica</h1>
+          <p class="muted">Perfeita para varandas, salas e presentes — pronta para decorar sua casa neste Natal.</p>
+
+          <div style="display:flex;gap:16px;align-items:center;margin-top:12px">
+            <div>
+              <div class="price">R$37,90</div>
+              <div class="muted">Oferta: 1 unidade</div>
+            </div>
+            <div>
+              <div class="price">2 por R$54,90</div>
+              <div class="muted">Economize R$20,90</div>
+            </div>
+          </div>
+
+          <ul>
+            <li>Altura: 90 cm</li>
+            <li>Montagem simples, material resistente</li>
+            <li>Frete grátis para toda a região</li>
+          </ul>
+
+          <div style="margin-top:12px" class="features">
+            <div class="feature">✔ Envio rápido</div>
+            <div class="feature">✔ Pagamento seguro (GhostsPay)</div>
+            <div class="feature">✔ Suporte via WhatsApp</div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+            <label style="font-weight:700">Quantidade</label>
+            <div class="quantity">
+              <button onclick="changeQty(-1)" class="ghost-btn btn">−</button>
+              <input id="qty" class="qty" type="number" value="1" min="1" max="10" />
+              <button onclick="changeQty(1)" class="ghost-btn btn">+</button>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:10px">
+            <button id="buyNow" class="btn buy" onclick="buyNow()">Comprar agora</button>
+            <button id="addCart" class="btn ghost-btn" onclick="addToCart()">Adicionar ao carrinho</button>
+          </div>
+
+          <div id="note" class="muted" style="margin-top:10px">Pagamento via GhostsPay. Você será redirecionado para uma página segura para finalizar o PIX ou cartão.</div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h3 class="muted">Detalhes do pedido</h3>
+          <div id="orderSummary" class="muted">1 × Árvore 90cm — R$37,90</div>
+          <div style="margin-top:8px"><strong>Total:</strong> <span id="total" class="price">R$37,90</span></div>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card" style="text-align:center">
+          <div style="font-size:14px;font-weight:700">Oferta Especial de Natal</div>
+          <div style="margin-top:10px"><img src="https://images.unsplash.com/photo-1544551763-4b9f6aa79a8b?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Árvore de Natal" style="max-width:100%;border-radius:8px" /></div>
+          <div style="margin-top:10px" class="muted">Compre com confiança — garantia de entrega.</div>
+
+          <div style="margin-top:14px;text-align:left">
+            <strong>Frete</strong>
+            <div class="muted">Grátis para toda a região</div>
+          </div>
+
+          <div style="margin-top:12px;text-align:left">
+            <strong>Pagamento</strong>
+            <div class="muted">PIX, cartão e opções via GhostsPay</div>
+          </div>
+
+          <div style="margin-top:14px;text-align:left">
+            <strong>Contato</strong>
+            <div class="muted">WhatsApp: (99) 99999-9999</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h4 class="muted">Segurança</h4>
+          <p class="muted">Transações processadas por GhostsPay. Proteção contra chargebacks e dados do comprador seguros.</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="muted">© 2025 Natal Feliz — Desenvolvido por você. • Política de privacidade • Termos</div>
+    </footer>
+  </div>
+
+  <script>
+    // --- CONFIGURE AQUI: cole seu link de checkout da GhostsPay ---
+    // A GhostsPay geralmente fornece um URL de checkout ou endpoint que aceita parâmetros (ex: amount, description, quantity, order_id).
+    // Substitua a string abaixo pelo seu URL de checkout específico (ex: https://checkout.ghostspay.com/pay?merchant=SEU_ID)
+    const GHOSTSPAY_CHECKOUT_URL = "REPLACE_WITH_YOUR_GHOSTSPAY_CHECKOUT_URL";
+
+    // Preços fixos conforme pedido
+    const PRICE_SINGLE = 37.90;
+    const PRICE_DOUBLE = 54.90; // preço já promocional para 2 unidades
+
+    const qtyInput = document.getElementById('qty');
+    const orderSummary = document.getElementById('orderSummary');
+    const totalEl = document.getElementById('total');
+
+    function formatBRL(v){
+      return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+    }
+
+    function updateSummary(){
+      let q = parseInt(qtyInput.value) || 1;
+      let unitPrice = PRICE_SINGLE;
+      let total = 0;
+      if(q===1){ unitPrice = PRICE_SINGLE; total = PRICE_SINGLE; }
+      else if(q===2){ unitPrice = PRICE_DOUBLE/2; total = PRICE_DOUBLE; }
+      else if(q>2){ // aplica combinação: cada par fica por PRICE_DOUBLE/2, ímpar adicional por PRICE_SINGLE
+        const pairs = Math.floor(q/2);
+        const rem = q % 2;
+        total = pairs * PRICE_DOUBLE + rem * PRICE_SINGLE;
+      }
+      orderSummary.textContent = q + ' × Árvore 90cm — ' + formatBRL(total);
+      totalEl.textContent = formatBRL(total);
+    }
+
+    function changeQty(delta){
+      let v = parseInt(qtyInput.value)||1;
+      v = Math.max(1, Math.min(10, v + delta));
+      qtyInput.value = v;
+      updateSummary();
+    }
+
+    qtyInput.addEventListener('input', ()=>{ if(!qtyInput.value) qtyInput.value=1; updateSummary(); });
+    updateSummary();
+
+    // Abre o checkout GhostsPay com parâmetros. O formato exato depende da sua integração GhostsPay.
+    // Estratégia segura: redirecionar para um URL de checkout que você configura no painel GhostsPay, passando apenas ORDER e AMOUNT.
+    function buyNow(){
+      const q = parseInt(qtyInput.value) || 1;
+      const total = getTotalForQty(q);
+      if(!GHOSTSPAY_CHECKOUT_URL || GHOSTSPAY_CHECKOUT_URL.includes('REPLACE')){
+        alert('⚠️ Por favor insira seu GHOSTSPAY_CHECKOUT_URL no código antes de finalizar as compras.');
+        return;
+      }
+      // Gere um order_id simples (você pode substituir por um ID do seu backend)
+      const orderId = 'NF-'+Date.now();
+      // Monta parâmetros (exemplo comum): ?order_id=...&amount=...&description=...
+      const params = new URLSearchParams({order_id:orderId,amount:total.toFixed(2),description:`Árvore de Natal 90cm x${q}`});
+      // Redireciona para checkout
+      window.location.href = GHOSTSPAY_CHECKOUT_URL + (GHOSTSPAY_CHECKOUT_URL.includes('?')? '&':'?') + params.toString();
+    }
+
+    function addToCart(){
+      alert('Carrinho simples: você será redirecionado para o checkout na próxima etapa.');
+      buyNow();
+    }
+
+    function getTotalForQty(q){
+      if(q===1) return PRICE_SINGLE;
+      if(q===2) return PRICE_DOUBLE;
+      const pairs = Math.floor(q/2);
+      const rem = q%2;
+      return pairs*PRICE_DOUBLE + rem*PRICE_SINGLE;
+    }
+  </script>
+</body>
+</html>
